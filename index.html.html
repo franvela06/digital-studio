@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Digital Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+section{
+padding:100px 8%;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+position:relative;
+background:
+radial-gradient(circle at 15% 15%,rgba(20,184,166,0.45) 0%,transparent 28%),
+radial-gradient(circle at 85% 20%,rgba(99,102,241,0.45) 0%,transparent 30%),
+radial-gradient(circle at 50% 100%,rgba(217,119,6,0.25) 0%,transparent 35%),
+#050816;
+}
+
+.nav{
+position:absolute;
+top:28px;
+left:8%;
+right:8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:5;
+}
+
+.logo{
+font-weight:800;
+letter-spacing:-1px;
+font-size:20px;
+}
+
+.nav-links{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:#cbd5e1;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+padding:10px 16px;
+border-radius:100px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-links a:hover{
+background:rgba(255,255,255,0.1);
+color:white;
+}
+
+.top-text{
+color:#5eead4;
+font-size:14px;
+font-weight:800;
+letter-spacing:4px;
+text-transform:uppercase;
+margin-bottom:30px;
+}
+
+.hero h1{
+font-size:92px;
+line-height:0.9;
+font-weight:900;
+max-width:1050px;
+letter-spacing:-6px;
+}
+
+.hero h1 span{
+background:linear-gradient(90deg,#5eead4,#818cf8,#fbbf24);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+margin-top:35px;
+max-width:790px;
+font-size:21px;
+line-height:1.9;
+color:#dbeafe;
+}
+
+.buttons{
+display:flex;
+gap:18px;
+margin-top:45px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:18px 34px;
+border-radius:100px;
+text-decoration:none;
+font-weight:700;
+transition:0.3s;
+display:inline-block;
+}
+
+.btn-primary{
+background:linear-gradient(90deg,#14b8a6,#6366f1);
+color:white;
+box-shadow:0 16px 50px rgba(99,102,241,0.35);
+}
+
+.btn-secondary{
+border:1px solid rgba(255,255,255,0.15);
+color:white;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(14px);
+}
+
+.btn-gold{
+background:linear-gradient(90deg,#f59e0b,#f97316);
+color:white;
+box-shadow:0 16px 50px rgba(249,115,22,0.25);
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+.section-title{
+font-size:66px;
+line-height:0.95;
+margin-bottom:28px;
+font-weight:900;
+letter-spacing:-4px;
+}
+
+.section-title span{
+background:linear-gradient(90deg,#5eead4,#818cf8);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.section-text{
+max-width:900px;
+font-size:19px;
+line-height:1.9;
+color:#94a3b8;
+}
+
+.grid{
+margin-top:60px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:26px;
+}
+
+.card{
+padding:40px;
+border-radius:34px;
+min-height:300px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 22px 60px rgba(0,0,0,0.35);
+}
+
+.card h3{
+font-size:34px;
+margin-bottom:20px;
+line-height:1;
+}
+
+.card p{
+font-size:16px;
+line-height:1.9;
+color:rgba(255,255,255,0.88);
+}
+
+.teal{
+background:linear-gradient(135deg,#0f766e,#14b8a6);
+}
+
+.indigo{
+background:linear-gradient(135deg,#3730a3,#6366f1);
+}
+
+.slate{
+background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.sky{
+background:linear-gradient(135deg,#0369a1,#38bdf8);
+}
+
+.rose{
+background:linear-gradient(135deg,#be123c,#fb7185);
+}
+
+.amber{
+background:linear-gradient(135deg,#b45309,#f59e0b);
+}
+
+.split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:55px;
+align-items:center;
+}
+
+.large-box{
+padding:55px;
+border-radius:36px;
+background:linear-gradient(145deg,#0f172a,#111827);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 25px 80px rgba(0,0,0,0.3);
+}
+
+.large-box h2{
+font-size:54px;
+line-height:1;
+margin-bottom:28px;
+letter-spacing:-2px;
+}
+
+.large-box p{
+font-size:18px;
+line-height:1.9;
+color:#dbeafe;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:22px;
+}
+
+.feature{
+padding:36px;
+border-radius:28px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.feature h3{
+font-size:44px;
+margin-bottom:10px;
+background:linear-gradient(90deg,#5eead4,#818cf8,#fbbf24);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.feature p{
+line-height:1.8;
+color:#cbd5e1;
+}
+
+.showcase{
+margin-top:65px;
+display:grid;
+grid-template-columns:1.2fr 0.8fr;
+gap:26px;
+}
+
+.showcase-main{
+background:linear-gradient(145deg,#111827,#312e81);
+border-radius:36px;
+padding:50px;
+min-height:360px;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.showcase-main h3{
+font-size:44px;
+letter-spacing:-2px;
+margin-bottom:22px;
+}
+
+.showcase-main p{
+color:#dbeafe;
+line-height:1.9;
+font-size:17px;
+}
+
+.showcase-side{
+display:grid;
+gap:26px;
+}
+
+.mini-card{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.08);
+border-radius:28px;
+padding:30px;
+}
+
+.mini-card h4{
+font-size:24px;
+margin-bottom:12px;
+}
+
+.mini-card p{
+color:#cbd5e1;
+line-height:1.8;
+}
+
+.process{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:24px;
+margin-top:70px;
+}
+
+.process-card{
+padding:38px;
+border-radius:30px;
+background:#0f172a;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.number{
+font-size:76px;
+font-weight:900;
+opacity:0.2;
+margin-bottom:10px;
+background:linear-gradient(90deg,#5eead4,#818cf8);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.process-card h3{
+font-size:30px;
+margin-bottom:18px;
+}
+
+.process-card p{
+line-height:1.8;
+color:#cbd5e1;
+}
+
+.contact-section{
+background:
+radial-gradient(circle at top right,rgba(20,184,166,0.3),transparent 35%),
+radial-gradient(circle at bottom left,rgba(245,158,11,0.25),transparent 35%),
+#080d1a;
+}
+
+.contact-box{
+background:rgba(255,255,255,0.06);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:38px;
+padding:55px;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:40px;
+align-items:center;
+backdrop-filter:blur(18px);
+}
+
+.contact-box h2{
+font-size:58px;
+line-height:1;
+letter-spacing:-3px;
+margin-bottom:24px;
+}
+
+.contact-box p{
+font-size:18px;
+line-height:1.9;
+color:#cbd5e1;
+}
+
+.contact-info{
+display:grid;
+gap:18px;
+}
+
+.contact-item{
+padding:24px;
+border-radius:24px;
+background:#0f172a;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.contact-item strong{
+display:block;
+font-size:15px;
+color:#5eead4;
+margin-bottom:8px;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+.contact-item a{
+color:white;
+font-size:20px;
+font-weight:700;
+text-decoration:none;
+word-break:break-word;
+}
+
+.cta{
+text-align:center;
+background:
+radial-gradient(circle at top,#14b8a6 0%,transparent 38%),
+radial-gradient(circle at bottom,#6366f1 0%,transparent 42%),
+#050816;
+}
+
+.cta h2{
+font-size:82px;
+line-height:0.95;
+max-width:1100px;
+margin:auto;
+letter-spacing:-5px;
+}
+
+.cta p{
+max-width:760px;
+margin:35px auto;
+font-size:20px;
+line-height:1.9;
+color:#dbeafe;
+}
+
+.footer{
+padding:42px 8%;
+border-top:1px solid rgba(255,255,255,0.08);
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:20px;
+color:#94a3b8;
+font-size:16px;
+background:#050816;
+}
+
+@media(max-width:900px){
+
+.nav{
+position:relative;
+top:auto;
+left:auto;
+right:auto;
+padding:24px 8%;
+background:#050816;
+}
+
+.hero{
+padding-top:60px;
+}
+
+.hero h1{
+font-size:58px;
+letter-spacing:-3px;
+}
+
+.section-title{
+font-size:46px;
+letter-spacing:-2px;
+}
+
+.cta h2{
+font-size:54px;
+letter-spacing:-2px;
+}
+
+.split,
+.showcase,
+.contact-box{
+grid-template-columns:1fr;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero" id="inicio">
+
+<div class="nav">
+<div class="logo">Creative Digital Studio</div>
+<div class="nav-links">
+<a href="#servicios">Servicios</a>
+<a href="#proceso">Proceso</a>
+<a href="#contacto">Contacto</a>
+</div>
+</div>
+
+<div class="top-text">
+Agencia digital moderna
+</div>
+
+<h1>
+Creamos <span>experiencias digitales</span> que se sienten premium.
+</h1>
+
+<p>
+Diseñamos páginas web, plataformas empresariales, automatizaciones e inteligencia artificial personalizada para empresas que quieren verse modernas, crecer y trabajar mejor.
+</p>
+
+<div class="buttons">
+<a href="#contacto" class="btn btn-primary">Trabajar con nosotros</a>
+<a href="#servicios" class="btn btn-secondary">Nuestros servicios</a>
+</div>
+
+</section>
+
+<section id="servicios">
+
+<h2 class="section-title">
+No hacemos páginas comunes. <span>Creamos sistemas.</span>
+</h2>
+
+<p class="section-text">
+Desarrollamos experiencias digitales enfocadas en diseño premium, tecnología real y soluciones prácticas. Desde una página web moderna hasta una plataforma completa con mapas, dashboards, WhatsApp, correo, bases de datos e inteligencia artificial propia.
+</p>
+
+<div class="grid">
+
+<div class="card teal">
+<h3>Desarrollo Web</h3>
+<p>
+Páginas modernas, rápidas y visualmente impactantes diseñadas para transmitir confianza, profesionalismo y experiencia premium.
+</p>
+</div>
+
+<div class="card indigo">
+<h3>IA Propia</h3>
+<p>
+Creamos inteligencias artificiales personalizadas con lenguaje específico para empresas, atención al cliente y procesos internos.
+</p>
+</div>
+
+<div class="card slate">
+<h3>Plataformas</h3>
+<p>
+Sistemas empresariales, dashboards, paneles administrativos, bases de datos y herramientas digitales a la medida.
+</p>
+</div>
+
+<div class="card sky">
+<h3>Mapas y Datos</h3>
+<p>
+Integramos mapas interactivos, visualización geográfica, reportes, gráficas y datos en tiempo real para empresas modernas.
+</p>
+</div>
+
+<div class="card rose">
+<h3>Automatización</h3>
+<p>
+Conectamos formularios, correo, WhatsApp, bases de datos y sistemas internos para ahorrar tiempo y mejorar operaciones.
+</p>
+</div>
+
+<div class="card amber">
+<h3>Mantenimiento</h3>
+<p>
+Soporte, mejoras visuales, optimización, seguridad, actualizaciones y evolución constante de cada plataforma.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="split">
+
+<div class="large-box">
+
+<h2>
+Todo conectado en una sola experiencia.
+</h2>
+
+<p>
+Podemos crear páginas web con botones reales a WhatsApp, formularios conectados al correo, paneles para administrar clientes, mapas interactivos, sistemas de pedidos, catálogos digitales, reportes automáticos, dashboards y herramientas con inteligencia artificial.
+<br><br>
+La idea no es solo que se vea bonito. La idea es que funcione, venda, organice y ayude al negocio a crecer.
+</p>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+<h3>IA</h3>
+<p>Inteligencia artificial entrenada para el lenguaje y necesidades de cada empresa.</p>
+</div>
+
+<div class="feature">
+<h3>UX</h3>
+<p>Diseño moderno, limpio y fácil de usar para clientes y equipos internos.</p>
+</div>
+
+<div class="feature">
+<h3>Maps</h3>
+<p>Mapas interactivos para agricultura, logística, rutas, ubicaciones o monitoreo.</p>
+</div>
+
+<div class="feature">
+<h3>CRM</h3>
+<p>Gestión de clientes, mensajes, formularios, contactos y seguimiento comercial.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="showcase">
+
+<div class="showcase-main">
+<h3>Una plataforma puede ser mucho más que una página.</h3>
+<p>
+Podemos desarrollar un sistema completo donde el cliente vea servicios, escriba por WhatsApp, complete formularios, reciba correos automáticos, consulte mapas, administre pedidos, revise reportes y use herramientas inteligentes dentro de una sola experiencia moderna.
+</p>
+</div>
+
+<div class="showcase-side">
+<div class="mini-card">
+<h4>Para empresas</h4>
+<p>Websites corporativos, sistemas internos, paneles administrativos y automatización.</p>
+</div>
+<div class="mini-card">
+<h4>Para marcas</h4>
+<p>Tiendas online, catálogos modernos, landing pages y experiencia visual premium.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="proceso">
+
+<h2 class="section-title">
+Nuestro proceso creativo.
+</h2>
+
+<div class="process">
+
+<div class="process-card">
+<div class="number">01</div>
+<h3>Estrategia</h3>
+<p>
+Analizamos la empresa, sus necesidades y la experiencia digital que necesita construir.
+</p>
+</div>
+
+<div class="process-card">
+<div class="number">02</div>
+<h3>Diseño</h3>
+<p>
+Creamos una interfaz moderna, atractiva y profesional, pensada para verse premium.
+</p>
+</div>
+
+<div class="process-card">
+<div class="number">03</div>
+<h3>Desarrollo</h3>
+<p>
+Construimos la página, sistema, plataforma, automatización o IA según el objetivo.
+</p>
+</div>
+
+<div class="process-card">
+<div class="number">04</div>
+<h3>Evolución</h3>
+<p>
+Damos mantenimiento, soporte y mejoras para que la plataforma siga creciendo.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact-section" id="contacto">
+
+<div class="contact-box">
+
+<div>
+<h2>Hablemos de tu proyecto.</h2>
+<p>
+Podemos ayudarte a crear una página moderna, una plataforma empresarial, una inteligencia artificial propia o un sistema completo conectado a WhatsApp, correo, mapas y automatizaciones.
+</p>
+
+<div class="buttons">
+<a href="https://wa.me/15018044585" class="btn btn-primary">Escribir por WhatsApp</a>
+<a href="mailto:fjvelasquez7@hotmail.com" class="btn btn-gold">Enviar correo</a>
+</div>
+</div>
+
+<div class="contact-info">
+<div class="contact-item">
+<strong>Número</strong>
+<a href="tel:+15018044585">+1 501 804 4585</a>
+</div>
+
+<div class="contact-item">
+<strong>Correo</strong>
+<a href="mailto:fjvelasquez7@hotmail.com">fjvelasquez7@hotmail.com</a>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+Tecnología para empresas que quieren destacar.
+</h2>
+
+<p>
+Creamos experiencias digitales modernas para marcas y empresas que quieren crecer, verse premium y construir algo diferente.
+</p>
+
+<div class="buttons" style="justify-content:center;">
+<a href="#contacto" class="btn btn-primary">Comenzar proyecto</a>
+</div>
+
+</section>
+
+<div class="footer">
+
+<div>
+Creative Digital Studio
+</div>
+
+<div>
+Websites • IA • Apps • Mapas • Automatización
+</div>
+
+</div>
+
+</body>
+</html>
